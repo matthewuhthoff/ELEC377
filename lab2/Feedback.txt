@@ -1,0 +1,13 @@
+Documentation 3/3
+
+
+Correctness 2/3
+-init_shared function needs to check if the value returned by sem_open is SEM_FAILED, not NULL, be careful and read the lab instructions!
+-code does not check if semaphore post/wait fails or not
+
+Style 2/2
+
+
+Testing 1/2
+-you need to include the output of your tests! TAs do not have time to run your code to validate it
+-the two snippets included are helpful, but the entire log (or a significant chunk at least) is needed

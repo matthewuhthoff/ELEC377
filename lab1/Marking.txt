@@ -1,0 +1,9 @@
+Documentation 2/3
+    You're supposed to describe the contents of the read function (lab1_show).
+Code Correctness 3/3
+    You should be checking if proc_create returns NULL and returning -ENOMEM if so.
+    Looks good!
+Code Clarity 2/2
+    You should reference TASK_RUNNING, TASK_INTERRUPTIBLE, TASK_UNINTERRUPTIBLE and TASK_STOPPED rather than hard-coding values.
+Testing 2/2
+    Good diversity of tests!

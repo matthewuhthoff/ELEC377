@@ -1,0 +1,32 @@
+Problem Statement:
+The purpose of this lab is that we are required to write a sheel that implements the commands;
+exit - to exit the shell with exit code 0, pwd - to print the current working directory,
+ls - to list the contents of the current directory, and cd - to chenge the current directory.
+This lab will also develop our understanding of the memory model and work on good coding style.
+
+Describing the Lab:
+The first part of the lab is using the splitCommandLine function to find how many words are in
+a user input. What this function does is it uses pointers to store the address of the first
+letter in each word in an array. This function also utillizes the skipChar function which will
+skip null characters or spaces until it finds the beginning of the next word.
+
+The second part of the lab is using the doInternalCommand function to create the four commands
+(exit, pwd, ls, and cd) described in the problem statement. We use typedef as a pointer to the
+function listed in the dispatch table. The dispatch table is an array containing the function
+call and the function name for each of the four commands and ending with NULL to return zero
+if reached (i.e. function entered does not exist). The function doInternalCommand looks at this 
+array, and will call the function depending on the user input. Each of the functions use specific
+library functions to get the needed information and will print the results in the required
+format.
+
+The third part of the lab is using the doProgram function to be executed if the number of
+arguements returned by doInternalCommand is zero. The doProgram function loops through an array
+holding a list of directories. This is then stored in cmd_path and the address is passed into 
+stat whcih will retrieve the file. If the file is not executable or does not exist, then the
+function will return zero. At the end of the loop, we check is the pathString is not null, in 
+that case the fork function begins. This splits the program into parent and child processes.
+We then use the library command execv to allow for the parent process to wait for the child
+process to finish executing.
+
+
+

@@ -1,0 +1,11 @@
+The problem we are trying to solve is creating a module in the linux /proc directory that has access to
+the internal structures and attributes of the linux implementation of a process control block.
+
+First we start with initializing with the module_init command and call the lab1_init function.
+Within this function, the proc_create function is used to point to a structure that will get
+us access to functions that will generate content to the file.
+The function referenced is .open = lab1_open with was then used to open lab_show. This now 
+allows us to gather content from the file and bring to output.
+
+The read functions come from the lab1_fops functions. There are two routes the code may go depending
+on whether the proc_ops is in action. Both fuctions do the same thing which is reading from file.

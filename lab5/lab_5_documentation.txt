@@ -1,0 +1,22 @@
+Problem Statement:
+The purpose for this lab is to examine secruity vulnerabilities by breaking into applications in a controlled environment. This will
+lead to the development of better designed security code.  
+
+Description of the Lab:
+The first part of the lab is to obtain the environment variables from the server. We do this by performing a buffer overflow attack
+which allows us to inject our own shellcode into the server. By taking advantage of comprimise1, we can add a specific amount of X's 
+to the value which the last 8 X's are overwritten and we get the password in ascii keys. From this we are able to get the address of
+the password.
+
+The second part of the lab is to write some shell code in exploit.nasm. The Exploit pdf explains all the code that has been given. We
+are tasked to add on to that. Using the nasm knowledge from the pre-lab and the nasm guide from that document we could write the code 
+to perform the exploit. 
+The first portion of the shell code is restore the contents of the argv array. This is done with the mov and lea instructions to 
+calculate the runtime addresses of exeStr, flagStr and cmdStr. 
+The next is dealing with the address of the environ variable. In our case we didn't have to deal with the cleaning the null byte off
+the end of the environ variable. We use the shift operation to clean the address of the stack pointer, then we can combine to have the
+full address in register d. Finally the remaining null bytes are removed from the code. 
+
+The third portion of the lab is dealing with selfcomp.c again. This is where as a group we ended with our progress. We managed to get 
+the stack pointer address and put that into the comprimise array. The selfcomp object file runs without seg faulting but does not 
+output the environment variables. 

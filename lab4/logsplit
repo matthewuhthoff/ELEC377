@@ -1,0 +1,54 @@
+#!/bin/bash
+
+#$1 is the name of the file
+echo $1
+
+# check that the number of arguments is 1 (Step 1)
+if (($# == 1)); then
+    echo Number of arguments is 1
+else
+    echo Number of arguments is not 1
+fi
+
+# check that the file exists (Step 1)
+if test -f $1; then
+    echo File does exist
+else
+    echo File does not exist
+fi
+# extract all of the Reader Messages (R) (Step 1)
+echo "Extrating Summary Reader Messages"
+readerFile="$1"'.Reader'
+
+grep "^.\[[0-1];[0-9][0-9]mR" $1 > $readerFile
+
+
+# extract all of the Printer Messages (P)  (Step 1)
+echo "Extrating Summary Printer Messages"
+printerFile="$1"'.Printer'
+
+grep "^.\[[0-1];[0-9][0-9]mP" $1 > $printerFile
+
+
+
+#find the number of machines (Step 2)
+echo "Finding number of monitors"
+listMonitors="$(grep '^.\[[0-1];[0-9][0-9]m[0-5]' $1 | cut -c 8 | sort | uniq)"
+
+# extract each machine messages (Step 2)
+for i in $listMonitors;
+do
+    echo "Reading messages from monitor $i"
+    grep '^.\[[0-1];[0-9][0-9]m'$i $1 > $1.Monitor$i
+done
+
+
+# add time range to end of file. (Step 3)
+files="$(ls $1.*)"
+for filename in $files;
+do
+    startTime="$(head -n 1 $filename | cut -c '11-20,22-27' )"
+    endTime="$(tail -n 1 $filename | cut -c '11-20,22-27')"
+
+    printf "Time Span: %0.2f secs\n" $(($endTime - $startTime))e-6 >> $filename
+done

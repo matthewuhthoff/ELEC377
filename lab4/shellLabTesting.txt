@@ -1,0 +1,19 @@
+Testing Document
+
+During the lab we ran the bash script on the two files provided and the output from the lab2 solution. As expected, in the printer file we see the accompanying lines relating to actions perfromed by the printer thread.
+An exmaple of a line would be 
+		[0;33mP [1666976739.205491] access_summary locked[0m
+
+The same is true for the reader thread where a typical line would look like
+		[0;33mR [1666976722.253467] Reader Thread loop accessing_stats lock aquired[0m
+
+The script also parses each of the monitor threads into their own txt file title appropriately.
+a typical line from a monitor action would look like 
+		[0;32m2 [1667150520.914584] Exit Critical Section[0m
+The final aspect that is tested is the time delta added at the end of every output file. This is performed with the printf command in the shell script.
+A typical line in the output file would look like
+		Time Span: 20.49 secs
+This is calculated from the timestamps on the first and last lines of the output file. For this particular file those lines are 
+		[0;35m2 [1667150508.423061] thread 2, file name is machine_2.txt[0m
+		[0;33m2 [1667150528.915984] Sleeping for 1200 msec[0m
+and the time delta (1667150528.915984 - 1667150508.423061) = 20.49292 which is truncated to 20.49s

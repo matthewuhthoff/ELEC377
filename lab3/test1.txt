@@ -1,0 +1,31 @@
+Script started on 2022-11-01 15:34:23-04:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="225" LINES="31"]
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+]0;20mau@elec377-Tues-41: ~/elec377-Tues-41/lab3[01;32m20mau@elec377-Tues-41[00m:[01;34m~/elec377-Tues-41/lab3[00m$ ls
+Makefile  [0m[01;32mhello[0m  hello.c  [01;32mshell[0m  shell.c  test1.txt  [01;34mtester[0m
+]0;20mau@elec377-Tues-41: ~/elec377-Tues-41/lab3[01;32m20mau@elec377-Tues-41[00m:[01;34m~/elec377-Tues-41/lab3[00m$ cd ./tester
+]0;20mau@elec377-Tues-41: ~/elec377-Tues-41/lab3/tester[01;32m20mau@elec377-Tues-41[00m:[01;34m~/elec377-Tues-41/lab3/tester[00m$ ls
+testing.txt
+]0;20mau@elec377-Tues-41: ~/elec377-Tues-41/lab3/tester[01;32m20mau@elec377-Tues-41[00m:[01;34m~/elec377-Tues-41/lab3/tester[00m$ cd -
+/home/20mau/elec377-Tues-41/lab3
+]0;20mau@elec377-Tues-41: ~/elec377-Tues-41/lab3[01;32m20mau@elec377-Tues-41[00m:[01;34m~/elec377-Tues-41/lab3[00m$ ls
+Makefile  [0m[01;32mhello[0m  hello.c  [01;32mshell[0m  shell.c  test1.txt  [01;34mtester[0m
+]0;20mau@elec377-Tues-41: ~/elec377-Tues-41/lab3[01;32m20mau@elec377-Tues-41[00m:[01;34m~/elec377-Tues-41/lab3[00m$ hello[K[K[K[K[Kpwd
+/home/20mau/elec377-Tues-41/lab3
+]0;20mau@elec377-Tues-41: ~/elec377-Tues-41/lab3[01;32m20mau@elec377-Tues-41[00m:[01;34m~/elec377-Tues-41/lab3[00m$ hello
+
+Command 'hello' not found, but can be installed with:
+
+sudo snap install hello              # version 2.10, or
+sudo apt  install hello              # version 2.10-2ubuntu2
+sudo apt  install hello-traditional  # version 2.10-5
+
+See 'snap info hello' for additional versions.
+
+]0;20mau@elec377-Tues-41: ~/elec377-Tues-41/lab3[01;32m20mau@elec377-Tues-41[00m:[01;34m~/elec377-Tues-41/lab3[00m$ ./hello
+Hello 20mau
+]0;20mau@elec377-Tues-41: ~/elec377-Tues-41/lab3[01;32m20mau@elec377-Tues-41[00m:[01;34m~/elec377-Tues-41/lab3[00m$ exit
+exit
+
+Script done on 2022-11-01 15:35:03-04:00 [COMMAND_EXIT_CODE="0"]

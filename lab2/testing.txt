@@ -1,0 +1,10 @@
+Testing
+
+Examining the output of the code we can see that the timeouts are the same as indicated by the machine_n.txt files.
+For example when a thread reads the line "1,3,0.2,5,19,8000" the accoponing output is 
+
+	"0 [1666122875.359333] Machine 0 Line 1: 1,3,0.200000,5,19"
+		and 
+	"0 [1666122875.359614] Sleeping for 8000 msec"
+	
+The output also indicated thats the program is switching between the threads as we would expect. 

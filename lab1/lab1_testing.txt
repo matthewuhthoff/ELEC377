@@ -1,0 +1,21 @@
+Testing:
+please refer to lab1_netid_out.txt for output when run from netid account and 
+lab1_root_out.txt for output when run from root.
+
+The major difference seen between the output when from as root vs netid user is the value of the UID's and GID's. 
+When run as root these values are all 0, vs as netid user they are aroud 1000. Another minor difference is in the 
+value of PPID, this value is higher when run as netid user (44162) compared to when run as root (36019). 
+
+commands used:
+	build from makefile
+	insmod lab1mod.ko
+	
+	either
+		cat /proc/lab1
+		more /proc/lab1
+		
+	for creating text files
+	either
+		cat /proc/lab1 >lab1_root_out.txt
+		more /proc/lab1 >lab1_root_out.txt
+		

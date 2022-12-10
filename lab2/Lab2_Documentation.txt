@@ -1,0 +1,34 @@
+1. Problem Statement
+
+There are multiple systems that send updates to a central monitor used to calculate statistics
+and print reports. Each monitor is represented as a separate thread which reads data from the 
+machine.txt files. The central monitor is represented as a global c struct that is shared
+between the threads. We were responsible to write a system to simulate a distributed system
+monitor.
+
+2. How the Lab Links Together
+
+In stage 1, we are to use the threads from the main program to open the machine.txt files using
+the monitor_update_status_entry function. The function must contain the reader part of the reader
+writer function to guard the critical section to ensure that one summarizer is allowed in the
+critical section at a time. Once in the critical section, monitor data is stored in the shared
+memory segment. TestLog statements were also used to show that our function was working correctly.
+
+In stage 2, we were resposible for reading the status posted by the monitor threads and summarizing
+them in a summary block. First we declare a type pthread_t variable to hold reference to the thread.
+The initialize a reader_param variable which points to the reader_thread function. We then make loop
+go through each of the monitors guarded by an access_stats sephamore. 
+
+In stage 3, we use the printer thread to get the gather the data from the reader loop and print it.
+Both the reader loop and the printer loop are a simple mutex on the summary part of the shared object.
+The reader loop gathers all the information from the machine state array and the printer loop looks at
+the reader loop and prints that information.
+
+
+3. Contents of the read function
+
+The signature of a thread is a function that takes a void pointer and returns a void pointer. The
+function defines the necessary variables from the header file. Then will loop through, checking for 
+more updates from the monitors. Once there numMonitors is zero the there should be no more updates. 
+The reader gathers machine state, timestamp, number of processes, packets per second, discards per
+second, and load factor.

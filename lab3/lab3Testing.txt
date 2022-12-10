@@ -1,0 +1,23 @@
+Lab 3 Testing Document
+
+we can see that after starting the program the shell is in the directory <20mau@elec377-Tues-41: ~/elec377-Tues-41/lab3>
+So then when we run the ls command the resulting output is the correct printing of the directory
+	Makefile  [0m[01;32mhello[0m  hello.c  [01;32mshell[0m  shell.c  test1.txt  [01;34mtester[0m
+where the text encoding is a little wonky.
+The added folder tester is visible and the next command is to cd into it.
+After that we see the correct directory <20mau@elec377-Tues-41: ~/elec377-Tues-41/lab3/tester>
+Then when we enter ls again we see the only file in this directory a testing txt file
+	testing.txt
+Then we return to the original directory by entering the command "cd -" which cd's to the parent directory.
+Now when we run pwd we see the expected 
+	/home/20mau/elec377-Tues-41/lab3
+Finally to test the doProgram function we try to run the hello executable
+To do this we first tried to enter the command "hello" 
+This will not run however because we don't give the program any information on how to find the executable
+When we instead run the command "./hello"
+the program can find the executable because it starts looking in the current directory.
+Then we see the output of the executable in the shell and that is also correct
+	Hello 20mau
+After that we test the final command "exit"
+This produces the expected output
+	Script done on 2022-11-01 15:35:03-04:00 [COMMAND_EXIT_CODE="0"]
